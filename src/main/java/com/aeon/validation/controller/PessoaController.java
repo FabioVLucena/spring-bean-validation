@@ -1,5 +1,7 @@
 package com.aeon.validation.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +16,7 @@ import com.aeon.validation.entity.Pessoa;
 public class PessoaController {
 
 	@PostMapping("/entidade")
-	public PessoaResponseDTO cadastrarPessoaEntidade(@RequestBody PessoaRequestDTO pessoaDTO) {
+	public PessoaResponseDTO cadastrarPessoaEntidade(@RequestBody @Valid PessoaRequestDTO pessoaDTO) {
 	
 		String nomeRazao = pessoaDTO.getNomeRazao();
 		
@@ -25,7 +27,7 @@ public class PessoaController {
 	}
 	
 	@PostMapping("/dto")
-	public Pessoa cadastrarPessoaDTO(@RequestBody Pessoa pessoa) {
+	public Pessoa cadastrarPessoaDTO(@RequestBody @Valid Pessoa pessoa) {
 		return pessoa;
 	}
 	
