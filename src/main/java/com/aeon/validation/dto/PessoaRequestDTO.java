@@ -1,9 +1,13 @@
 package com.aeon.validation.dto;
 
+import java.util.Date;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.br.CPF;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,12 +21,13 @@ public class PessoaRequestDTO {
 	private String nomeRazao;
 
 	@CPF(message = "Informe um CPF válido.")
-	@NotEmpty(message = "CPF é um campo obrigatório.")
+	@NotEmpty(message = "CPF não pode ser vazio.")
 	private String cpfCpnj;
 	
 	private String pessoaTipo;
 	
-	private String dataNascimento;
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	private Date dataNascimento;
 	
 	private String estadoCivil;
 	
