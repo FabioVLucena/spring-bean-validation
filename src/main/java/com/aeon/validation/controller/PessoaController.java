@@ -15,7 +15,7 @@ import com.aeon.validation.entity.Pessoa;
 @RequestMapping("/validar/pessoa")
 public class PessoaController {
 
-	@PostMapping("/entidade")
+	@PostMapping("/dto")
 	public PessoaResponseDTO cadastrarPessoaEntidade(@RequestBody @Valid PessoaRequestDTO pessoaDTO) {
 	
 		String nomeRazao = pessoaDTO.getNomeRazao();
@@ -26,7 +26,7 @@ public class PessoaController {
 		return response;
 	}
 	
-	@PostMapping("/dto")
+	@PostMapping("/entidade")
 	public Pessoa cadastrarPessoaDTO(@RequestBody @Valid Pessoa pessoa) {
 		return pessoa;
 	}
